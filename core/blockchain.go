@@ -321,12 +321,13 @@ func (bc *BlockChain) FastSyncCommitHead(hash common.Hash) error {
 func (bc *BlockChain) GasLimit() *big.Int {
 	bc.mu.RLock()
 	defer bc.mu.RUnlock()
-
-	if bc.Config().IsQuorum {
-		return math.MaxBig256 // HACK(joel) a very large number
-	} else {
-		return bc.currentBlock.GasLimit()
-	}
+	//trying to re-enable gaspricing
+	// if bc.Config().IsQuorum {
+	// 	return math.MaxBig256 // HACK(joel) a very large number
+	// } else {
+	// 	return bc.currentBlock.GasLimit()
+	// }
+	return bc.currentBlock.GasLimit()
 }
 
 // LastBlockHash return the hash of the HEAD block.
