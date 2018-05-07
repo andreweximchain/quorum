@@ -467,6 +467,36 @@ var (
 	}
 
 	// Gas price oracle settings
+	// GpoMinGasPriceFlag = cli.StringFlag{
+	// 	Name:  "gpomin",
+	// 	Usage: "Minimum suggested gas price",
+	// 	Value: new(big.Int).Mul(big.NewInt(20), common.Shannon).String(),
+	// }
+	// GpoMaxGasPriceFlag = cli.StringFlag{
+	// 	Name:  "gpomax",
+	// 	Usage: "Maximum suggested gas price",
+	// 	Value: new(big.Int).Mul(big.NewInt(500), common.Shannon).String(),
+	// }
+	GpoFullBlockRatioFlag = cli.IntFlag{
+		Name:  "gpofull",
+		Usage: "Full block threshold for gas price calculation (%)",
+		Value: 80,
+	}
+	GpobaseStepDownFlag = cli.IntFlag{
+		Name:  "gpobasedown",
+		Usage: "Suggested gas price base step down ratio (1/1000)",
+		Value: 10,
+	}
+	GpobaseStepUpFlag = cli.IntFlag{
+		Name:  "gpobaseup",
+		Usage: "Suggested gas price base step up ratio (1/1000)",
+		Value: 100,
+	}
+	GpobaseCorrectionFactorFlag = cli.IntFlag{
+		Name:  "gpobasecf",
+		Usage: "Suggested gas price base correction factor (%)",
+		Value: 110,
+ }
 	GpoBlocksFlag = cli.IntFlag{
 		Name:  "gpoblocks",
 		Usage: "Number of recent blocks to check for gas prices",
